@@ -175,10 +175,13 @@
 		}
 	}
 	&__spoiler {
+		margin: 20px 0px 0px 30px;
 		@media (max-width:767px) {
 			display: none;
 		}
-		margin: 20px 0px 0px 30px;
+		@media (min-width:1024px) {
+			margin: 20px 0px 0px 40px;
+		}
 	}
 }
 .slider-header {

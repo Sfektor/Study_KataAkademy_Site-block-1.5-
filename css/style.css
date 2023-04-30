@@ -259,6 +259,11 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 }
+@media (min-width: 1024px) {
+  .slider__spoiler {
+    margin: 20px 0px 0px 40px;
+  }
+}
 
 .slider-header {
   background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 98.61%);
