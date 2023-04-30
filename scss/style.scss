@@ -21,7 +21,45 @@
 // </ОБЕРТКА>========================================================================================================================================================================================================
 
 // Общие блоки (повторяющиеся)
-
+.spoiler {
+	display: inline-flex;
+	position: relative;
+	&__text {
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		font-weight: 700;
+		font-size: 15px;
+	}
+}
+.arrow--spoiler {
+	&::after,
+	&::before {
+		content: "";
+		display: block;
+		box-sizing: border-box;
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		border-right: 2px solid #41F6D7;
+		border-top: 2px solid #41F6D7;
+		transform: rotate(135deg);
+		top: 5px;
+		left: -20px;
+	}
+	&::after {
+		top: 10px;
+	}
+	&.open {
+		&::after,
+		&::before {
+			transform: rotate(315deg);
+			top: 8px;
+		}
+		&::after {
+			top: 13px;
+		}
+	}
+}
 // <ОСНОВНОЙ БЛОК> ==================================================================================================================================================================================================
 .slider {
 	&__header {
@@ -30,23 +68,55 @@
 		letter-spacing: -0.2px;
 		text-transform: uppercase;
 		min-height: 80px;
-		background: linear-gradient(270deg, #F8F8F8 0%, #FFFFFF 98.61%);
 		margin: 0px -16px;
 		padding: 16px;
+		@media (min-width:768px) {
+			min-height: 24px;
+			padding: 16px 24px;
+		}
 	}
 	&__body {
+		position: relative;
 		margin: 0px -16px;
 		padding: 16px 0px 28px 16px;
-		
+		@media (min-width:768px) {
+			padding: 16px 0px 0px 24px;
+			max-height: 176px;
+			transition: all 0.5s ease;
+		}
+		@media (min-width:1024px) {
+			padding: 16px 0px 0px 32px;
+		}
+		@media (max-width:767px) {
+			&::before{
+				content:'';
+				position: absolute;
+				width: 10%;
+				height: 100%;
+				top: 50%;
+				right: 0;
+				z-index: 2;
+				transform: translate(0, -50%);
+				background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+			}
+		}
 	}
 	&__wrapper {
+		
 		&.swiper-wrapper {
+			@media (min-width:768px) {
+				flex-wrap: wrap;
+				row-gap: 16px;
+				column-gap: 24px;
+			}
 		}
 	}
 	&__slide {
 		&.swiper-slide {
-			flex: 0 0 240px;
-			margin: 0px 16px 0px 0px;
+			@media (min-width:768px) {
+				flex-shrink: 1;
+				width: auto;
+			}
 		}
 	}
 	&__image {
@@ -87,6 +157,9 @@
 				transform: translate(-75%, -50%) rotate(45deg);
 			}
 		}
+		@media (min-width:768px) {
+			width: 224px;
+		}
 	}
 	&__pagination {
 		&.swiper-pagination {
@@ -101,14 +174,20 @@
 			background-color: #B5B6BC;
 		}
 	}
+	&__spoiler {
+		@media (max-width:767px) {
+			display: none;
+		}
+		margin: 20px 0px 0px 30px;
+	}
 }
-.swiper {
+.slider-header {
+	background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 98.61%);
+	@media (min-width: 768px) and (max-width: 1023px) {
+		background: linear-gradient(90deg, #F8F8F8 1.39%, #FFFFFF 100%);
+	}
+	&__text {}
 }
-
-
-
-
-
 // </ОСНОВНОЙ БЛОК>==================================================================================================================================================================================================
 
 // <ПОДВАЛ> =========================================================================================================================================================================================================
