@@ -77,14 +77,16 @@
 	&__body {
 		position: relative;
 		margin: 0px -16px;
-		padding: 16px 0px 28px 16px;
+		@media (min-width:320px) {
+			padding: 16px 0px 28px 16px;
+		}
 		@media (min-width:768px) {
-			padding: 16px 0px 0px 24px;
-			max-height: 176px;
+			padding: 24px 0px 0px 24px;
+			max-height: 184px;
 			transition: all 0.5s ease;
 		}
 		@media (min-width:1024px) {
-			padding: 16px 0px 0px 32px;
+			padding: 24px 0px 0px 32px;
 		}
 		@media (max-width:767px) {
 			&::before{
