@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 .spoiler__text {
   line-height: 24px;
   letter-spacing: -0.2px;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 15px;
 }
 
@@ -142,13 +142,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 24px;
   letter-spacing: -0.2px;
   text-transform: uppercase;
-  min-height: 80px;
+  min-height: 24px;
   margin: 0px -16px;
   padding: 16px;
 }
 @media (min-width: 768px) {
   .slider__header {
-    min-height: 24px;
     padding: 16px 24px;
   }
 }
@@ -197,8 +196,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .slider__image {
-  display: inline-flex;
-  justify-content: space-between;
+  display: flex;
   align-items: center;
   background: #FFFFFF;
   border: 1px solid #EAEAEA;
@@ -206,29 +204,23 @@ h1, h2, h3, h4, h5, h6 {
   width: 240px;
   height: 72px;
   padding: 5px 16px;
-}
-.slider__image a {
-  display: inline-block;
-  position: relative;
-  width: 40px;
-  height: 40px;
   cursor: pointer;
+  position: relative;
 }
-.slider__image a::after {
+.slider__image::after, .slider__image::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 84%;
+}
+.slider__image::after {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid #FF3E79;
+  transform: translate(-50%, -50%);
 }
-.slider__image a::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.slider__image::before {
   width: 12px;
   height: 12px;
   border-right: 2px solid #FF3E79;
